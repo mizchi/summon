@@ -1,4 +1,3 @@
-glob = require 'glob'
 path = require 'path'
 fs = require 'fs'
 mkdirp = require 'mkdirp'
