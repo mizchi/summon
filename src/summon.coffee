@@ -21,7 +21,7 @@ createReadableArgs = (argv) ->
   args = {}
   for k, v of argv when k[0] isnt '$'
     if v.length
-      for i, index in v[1..]
+      for i, index in v[0..]
         args['$'+(index)] = i
     else # if typeof v is 'string'
       args[k] = v
@@ -64,8 +64,9 @@ module.exports = main = (argv) ->
       fs.writeFileSync (path.join CWD, '.generators', 'generator', 'dummy.json.hbs')
         , presetGenratorGenerator.dummyJson
 
-    when 'generate'
-      target = _[1]
+    # when 'generate'
+    else
+      target = _[0]
       genRootDir = generatorDir(target)
       console.log " > generate #{target}"
 
@@ -86,4 +87,4 @@ module.exports = main = (argv) ->
       generator = require path.join genRootDir, 'generator'
       generator(g, args)
 
-main(argv)
+# main(argv)

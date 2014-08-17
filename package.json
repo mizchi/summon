@@ -2,6 +2,7 @@
   "name": "summon",
   "version": "0.0.0",
   "description": "",
+  "bin": "bin/summon",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "glob": "^4.0.5",
+    "coffee-script": "^1.7.1",
     "handlebars": "^2.0.0-alpha.4",
     "mkdirp": "^0.5.0",
     "optimist": "^0.6.1"

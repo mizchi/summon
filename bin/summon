@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+var argv = require('optimist')
+  .argv;
+
+require('coffee-script/register');
+require('../src/summon')(argv);
