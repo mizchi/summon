@@ -1,6 +1,6 @@
 {
   "name": "summon",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "bin": "bin/summon",
   "main": "index.js",
