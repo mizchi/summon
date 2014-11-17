@@ -70,11 +70,19 @@ module.exports = main = (argv) ->
       console.log " > generate #{target}"
 
       g = {}
+      hbs = require 'handlebars'
+
       g.render = (template, option) ->
-        hbs = require 'handlebars'
         hbs.compile(template)(option)
 
-      g.gen = (from, to) ->
+      g.addTemplateHelper = (name, fn) ->
+        hbs.registerHelper(name, fn)
+
+      g.addTemplateHelpers = (objs) ->
+        for name, fn of objs
+          hbs.registerHelper(name, fn)
+
+      g.generate = g.gen = (from, to) ->
         template = fs.readFileSync(path.join genRootDir, from).toString()
         expanded = g.render template, args
         dest = (path.join CWD, to)
